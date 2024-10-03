@@ -13,11 +13,7 @@ for i in range (0,times_rolled):
     random.seed()
     temp = random.random()
     print(temp)
-    if temp < 0.474 :
-        print("win")
-        starting_amm = 
-    else:
-        print("lose")
-        starting_amm *= 2
+
+#not done
         
     
