@@ -39,10 +39,10 @@ def martingale_strategy(starting_balance, initial_bet, max_spins):
     return balance, bank
 
 # Test execution
-starting_balance = 1000
-initial_bet = 10
+starting_balance = 600
+initial_bet = 40
 max_spins = 500
-sessions = 5
+sessions = 100
 
 total_balance = 0
 total_bank = 0
@@ -53,7 +53,7 @@ for i in range(sessions):
     total_bank += bank
 
 print(f"After {sessions} sessions(${starting_balance * sessions}):")
-print(f"Total balance: ${total_balance}")
+print(f"Total balance left: ${total_balance}")
 print(f"Total bank: ${total_bank}")
 
 
