@@ -16,19 +16,19 @@ def martingale_strategy(starting_balance, initial_bet, max_spins):
         #print(f"Spin {i + 1}: The ball landed on {outcome}.")
 
         if outcome == 'red':  # Win condition
-            #print(f"You win! You gain ${current_bet}.")
+            #print(f"You gain ${current_bet}.")
             balance += current_bet
             current_bet = initial_bet  # Reset the bet after a win
         else:
-            #print(f"You lose! You lose ${current_bet}.")
+            #print(f"You lose ${current_bet}.")
             balance -= current_bet
             current_bet *= 2  # Double the bet after a loss
 
         if balance < current_bet:
-            #print("Insufficient balance for the next bet.")
+            #print("not enough for the next bet.")
             break
 
-        if balance > starting_balance:  # Profitable, bank some profit
+        if balance > starting_balance:  # bank the profit
             bank += initial_bet
             balance -= initial_bet
 
