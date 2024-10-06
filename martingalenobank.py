@@ -8,7 +8,6 @@ def spin_roulette():
 def martingale_strategy(starting_balance, initial_bet, max_spins):
     balance = starting_balance
     current_bet = initial_bet
-    bank = 0
 
     for i in range(max_spins):
         outcome = spin_roulette()
@@ -23,31 +22,23 @@ def martingale_strategy(starting_balance, initial_bet, max_spins):
         if balance < current_bet:
             break
 
-        if balance > starting_balance:  # Bank the profit
-            bank += initial_bet
-            balance -= initial_bet
-
-    return balance, bank
+    return balance
 
 # Test execution
-starting_balance = 600
-initial_bet = 5
+starting_balance = 1000
+initial_bet = 10
 max_spins = 120
-sessions = 5
+sessions = 100
 
 total_balance = 0
 total_bank = 0
 actual_sessions = 0
 
 for i in range(sessions):
-    balance, bank = martingale_strategy(starting_balance, initial_bet, max_spins)
+    balance = martingale_strategy(starting_balance, initial_bet, max_spins)
     total_balance += balance
-    total_bank += bank
     actual_sessions += 1
 
 print(f"After {actual_sessions} sessions (${starting_balance * sessions}):")
 print(f"Total balance left: ${total_balance}")
-print(f"Total bank: ${total_bank}")
        
-
-
